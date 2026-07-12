@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 dependencies = [
     "click",
-    "opencv-python",
+    "opencv-python==4.10.0.84",
     "scipy",
     "matplotlib",
     "trimesh",
