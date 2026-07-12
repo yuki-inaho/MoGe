@@ -7,7 +7,7 @@
 - **プロジェクト名称・領域:** MoGe（Accurate Monocular Geometry Estimation）。単一の RGB 画像から、3D 点群、深度、法線、カメラ視野角などの幾何情報を推定する PyTorch ベースの研究・推論ソフトウェア。
 - **最終成果物:** MoGe-1 / MoGe-2 の学習済みモデルを利用した画像推論機能。画像ごとの depth、normal、point map、mask、FOV の可視化・保存、および GLB / PLY の 3D 出力。
 - **ビジネス背景・価値:** オープンドメイン画像から 3D 構造を復元し、3D コンテンツ生成、画像理解、計測、可視化などの後段処理に利用できる。MoGe-2 は metric scale と sharp details を重視し、normal 対応モデルも提供する。
-- **現時点の進捗サマリ:** リポジトリは `/home/kasm-user/Desktop/MoGe` に取得済み。uv 環境と `uv.lock` を整備済みで、NVIDIA L4 上で `Ruicheng/moge-2-vits-normal` による normal 推論を確認済み。実行結果は `outputs/moge2-normal-noenv/` に保存されている。
+- **現時点の進捗サマリ:** リポジトリルートに uv 環境と `uv.lock` を整備済みで、CUDA GPU 上で `Ruicheng/moge-2-vits-normal` による normal 推論を確認済み。実行結果は `outputs/moge2-normal-noenv/` に保存されている。
 
 ## 2. クリティカルな要求・制約
 
@@ -68,7 +68,7 @@
 
 ## 6. 試行タスク（オンボーディング演習）
 
-理解度確認のため、次の順で実施する。すべてリポジトリルート `/home/kasm-user/Desktop/MoGe` から実行する。
+理解度確認のため、次の順で実施する。すべてリポジトリルートから実行する。
 
 1. **環境診断:** `uv sync` を実行し、`uv run python -c 'import torch; print(torch.cuda.is_available())'` で uv と CUDA の状態を記録する。期待結果は環境が同期され、GPU 環境では `True` が出ること。
 2. **CLI 確認:** `uv run moge infer --help` を実行し、`--pretrained`、`--device`、`--maps`、`--glb`、`--ply` の役割を説明する。期待結果は help が終了コード0で表示されること。
@@ -85,10 +85,10 @@
 
 ### 付録: 参考情報
 
-- **主要リポジトリ/ディレクトリ:** `/home/kasm-user/Desktop/MoGe`、Python パッケージ `moge/`、CLI `moge/scripts/`、文書 `docs/`、サンプル `example_images/`。
+- **主要リポジトリ/ディレクトリ:** リポジトリルート、Python パッケージ `moge/`、CLI `moge/scripts/`、文書 `docs/`、サンプル `example_images/`。
 - **代表的なコマンド:**
   ```bash
-  cd /home/kasm-user/Desktop/MoGe
+  cd <repository-root>
   uv sync
   uv run moge infer --help
   uv run moge infer -i example_images/01_HouseIndoor.jpg -o outputs/moge2-normal --pretrained Ruicheng/moge-2-vits-normal --device cuda --resize 512 --resolution_level 0 --maps
