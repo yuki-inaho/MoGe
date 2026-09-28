@@ -325,11 +325,6 @@ paket-files/
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
-
-# Local uv environment and generated verification artifacts
-.venv/
-outputs/
-temp/
 *.pyc
 
 # Cake - Uncomment if you are using it
@@ -426,3 +421,5 @@ FodyWeavers.xsd
 /pretrained
 /.gradio
 /tmp
+/tensorboard
+/wandb
