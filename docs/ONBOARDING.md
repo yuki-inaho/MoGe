@@ -1,5 +1,7 @@
 # LLMオンボーディングサマリー
 
+> **2026-09-28 / `rtx2070` ブランチ更新:** 以下の MoGe-2 中心の記述は過去の fork 作業の記録です。このブランチでは upstream `main` の MoGe-3 を取り込み、`pyproject.toml` / `uv.lock` は PyTorch CUDA 12.8 に変更しました。MoGe-3 ViT-L は `Ruicheng/moge-3-vitl` の重みを明示指定して使います。草動画向けの深度と CoWTracker 3D 追跡点の尺度合わせは `scripts/grass_track_depth.py` を参照してください。重み・推論成果物は `temp/` に置き、Gitへ含めません。
+
 この文書は、MoGe リポジトリに参加する新任 LLM エージェントが、プロジェクトの目的・制約・実行方法・作業境界を短時間で把握するための初期資料です。作業開始前にこの文書と [README.md](../README.md) を確認してください。
 
 ## 1. プロジェクト概要と目的
